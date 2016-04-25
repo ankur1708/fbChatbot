@@ -31,11 +31,11 @@ app.post('/webhook/', function (req, res) {
         sender = event.sender.id
         if (event.message && event.message.text) {
             text = event.message.text
-            if (text === 'Generic') {
+            if (text === 'Show me products') {
                 sendGenericMessage(sender)
                 continue
             }
-            sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+            sendTextMessage(sender, "Bot heard, echo: " + text.substring(0, 200))
         }
         if (event.postback) {
             text = JSON.stringify(event.postback)
@@ -76,17 +76,17 @@ function sendGenericMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "First card",
-                    "subtitle": "Element #1 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+                    "title": "Anarkali for occassions",
+                    "subtitle": "₹20,000",
+                    "image_url": "http://d2jdrba3e4yihf.cloudfront.net/products/5439/large/pralii-peach-high-low-ankle-length-anarkali-with-zari-cutwork-gillet-PRL1028_1.JPG",
                     "buttons": [{
                         "type": "web_url",
-                        "url": "https://www.messenger.com",
-                        "title": "web url"
+                        "url": "http://www.violetstreet.com/products/pralii-peach-high-low-ankle-length-anarkali-with-zari-cutwork-gillet",
+                        "title": "I'll take it"
                     }, {
                         "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for first element in a generic bubble",
+                        "title": "Add to cart",
+                        "payload": "Anarkali added to cart. To checkout, type Checkout",
                     }],
                 }, {
                     "title": "Second card",
